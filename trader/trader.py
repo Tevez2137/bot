@@ -1,4 +1,4 @@
-def trader(baza):
+def trader(cursor):
 
     bot = commands.Bot(command_prefix="/", intents=intents)
     tree = bot.tree
