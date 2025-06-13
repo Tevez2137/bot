@@ -22,7 +22,7 @@ async def trade(interaction: discord.Interaction):
     await interaction.response.send_message("Wybierz osobę, z którą chcesz się wymienić:", view=TradeStartView(interaction.user), ephemeral=True)
 
 @tree.command(name="sell", description="Rozpocznij sprzedaż:")
-async def trade(interaction: discord.Interaction):
+async def sell(interaction: discord.Interaction):
     await interaction.response.send_message("Wybierz osobę, z którą chcesz się wymienić:", view=TradeStartView(interaction.user), ephemeral=True)
 
 
