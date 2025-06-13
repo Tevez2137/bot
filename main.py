@@ -28,4 +28,4 @@ async def on_ready():
     await tree.sync()
     print(f"Zalogowano jako {bot.user}")
 
-bot.run(os.environ.get("MTM4MzA3NjU1MzM4NjIzMzk0OA.GMpige.R7YBfBKeFVQ4_ha3xq2DwssDNFZz-6DgHusbc4"))
+bot.run(os.environ.get("TOKEN"))
