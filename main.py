@@ -18,4 +18,4 @@ if __name__ == '__main__':
         database="bocik"
     )
     cursor = db.cursor()
-    trader()
+    trader(cursor)
