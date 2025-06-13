@@ -1,7 +1,7 @@
 import discord
 from discord.ext import commands
 import os
-from trader.trader import TradeStartView, setup_db
+from trader.trader import TradeStartView, setup_db, SellStartView
 
 intents = discord.Intents.default()
 intents.message_content = True
@@ -23,7 +23,7 @@ async def trade(interaction: discord.Interaction):
 
 @tree.command(name="sell", description="Rozpocznij sprzedaż:")
 async def sell(interaction: discord.Interaction):
-    await interaction.response.send_message("Wybierz osobę, z którą chcesz się wymienić:", view=TradeStartView(interaction.user), ephemeral=True)
+    await interaction.response.send_message("Wybierz przedmiot który chcesz sprzedać:", view=SellStartView(interaction.user), ephemeral=True)
 
 
 @bot.event

@@ -45,3 +45,9 @@ class SelectUser(discord.ui.Select):
         embed.add_field(name="Ich przedmioty", value="\n".join(target_items) or "Brak")
 
         await interaction.response.edit_message(content="Podsumowanie wymiany:", embed=embed, view=None)
+
+
+class SellStartView(discord.ui.View):
+    def __init__(self, requester):
+        super().__init__(timeout=60)
+        self.requester = requester
