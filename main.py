@@ -15,7 +15,7 @@ if __name__ == '__main__':
         host="mysql://root:ixltAmoiTlhxCSfcllrbENEtUyawnhhS@mysql.railway.internal:3306/railway",
         user="root",
         password="ixltAmoiTlhxCSfcllrbENEtUyawnhhS",
-        database="bocik"
+        database=
     )
     cursor = db.cursor()
     trader(cursor)
