@@ -36,16 +36,19 @@ class SelectUser(discord.ui.Select):
         self.requester = requester
 
     async def callback(self, interaction: discord.Interaction):
-        target_id = int(self.values[0])
-        requester_items = get_inventory(self.requester.id)
-        target_items = get_inventory(target_id)
+        try:
+            target_id = int(self.values[0])
+            requester_items = get_inventory(self.requester.id)
+            target_items = get_inventory(target_id)
 
-        embed = discord.Embed(title="Wymiana", description=f"{self.requester.mention} chce wymienić się z <@{target_id}>")
-        embed.add_field(name="Twoje przedmioty", value="\n".join(requester_items) or "Brak")
-        embed.add_field(name="Ich przedmioty", value="\n".join(target_items) or "Brak")
+            embed = discord.Embed(title="Wymiana", description=f"{self.requester.mention} chce wymienić się z <@{target_id}>")
+            embed.add_field(name="Twoje przedmioty", value="\n".join(requester_items) or "Brak")
+            embed.add_field(name="Ich przedmioty", value="\n".join(target_items) or "Brak")
 
-        await interaction.response.edit_message(content="Podsumowanie wymiany:", embed=embed, view=None)
-
+            await interaction.response.edit_message(content="Podsumowanie wymiany:", embed=embed, view=None)
+        except Exception as e:
+            await interaction.response.send_message(f"Błąd: {str(e)}", ephemeral=True)
+            print("❌ Błąd w callback:", e)
 
 class SellStartView(discord.ui.View):
     def __init__(self, requester):
