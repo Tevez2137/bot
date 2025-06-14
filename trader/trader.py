@@ -25,6 +25,7 @@ def save_user(user_id, username):
     _db.commit()
     cursor.close()
 
+#trade
 
 class TradeStartView(discord.ui.View):
     def __init__(self, requester):
@@ -50,6 +51,8 @@ class SelectUser(discord.ui.Select):
             embed.add_field(name="Twoje przedmioty", value="\n".join(requester_items) or "Brak")
             embed.add_field(name="Ich przedmioty", value="\n".join(target_items) or "Brak")
             await interaction.response.edit_message(content="Podsumowanie wymiany:", embed=embed, view=None)
+
+#sell
 
 class SellStartView(discord.ui.View):
     def __init__(self, requester):
@@ -81,3 +84,8 @@ class SelectItem(discord.ui.Select):
             color=discord.Color.orange()
         )
         await interaction.response.edit_message(content="Podsumowanie sprzedaży:", embed=embed, view=None)
+
+#buy
+
+class BuyStartView(discord.ui.View):
+    def __init__(self, requester):
