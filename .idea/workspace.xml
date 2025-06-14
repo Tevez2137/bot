@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2ed9b4cd-7c7f-4fb2-ab1c-890c2f2bbd9b" name="Changes" comment="Dodano moduł sprzedaży i debug trade">
+    <list default="true" id="2ed9b4cd-7c7f-4fb2-ab1c-890c2f2bbd9b" name="Changes" comment="Praca nad modułem sprzedaży, wycofano trade debug, dodano automatyczne dodawanie userów do bazy">
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trader/trader.py" beforeDir="false" afterPath="$PROJECT_DIR$/trader/trader.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,22 +52,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;Python.main.executor&quot;: &quot;Debug&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;bot&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;vcs.Git&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "Python.main.executor": "Debug",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "bot",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "vcs.Git",
+    "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
+    ]
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration default="true" type="DjangoTestsConfigurationType">
       <module name="bot" />
@@ -252,7 +257,7 @@
       <option name="presentableId" value="Default" />
       <updated>1749827869984</updated>
       <workItem from="1749827870988" duration="6151000" />
-      <workItem from="1749845711853" duration="5860000" />
+      <workItem from="1749845711853" duration="6171000" />
     </task>
     <task id="LOCAL-00001" summary="1">
       <option name="closed" value="true" />
@@ -430,7 +435,15 @@
       <option name="project" value="LOCAL" />
       <updated>1749891207443</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="Praca nad modułem sprzedaży, wycofano trade debug, dodano automatyczne dodawanie userów do bazy">
+      <option name="closed" value="true" />
+      <created>1749891684235</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1749891684235</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -475,7 +488,8 @@
     <MESSAGE value="1" />
     <MESSAGE value="Dodano moduł sprzedaży" />
     <MESSAGE value="Dodano moduł sprzedaży i debug trade" />
-    <option name="LAST_COMMIT_MESSAGE" value="Dodano moduł sprzedaży i debug trade" />
+    <MESSAGE value="Praca nad modułem sprzedaży, wycofano trade debug, dodano automatyczne dodawanie userów do bazy" />
+    <option name="LAST_COMMIT_MESSAGE" value="Praca nad modułem sprzedaży, wycofano trade debug, dodano automatyczne dodawanie userów do bazy" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
