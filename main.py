@@ -1,7 +1,7 @@
 import discord
 from discord.ext import commands
 import os
-from trader.trader import TradeStartView, setup_db, SellStartView
+from trader.trader import TradeStartView, setup_db, SellStartView, save_user
 
 intents = discord.Intents.default()
 intents.message_content = True
@@ -31,5 +31,16 @@ async def on_ready():
     setup_db(db_config)
     await tree.sync()
     print(f"Zalogowano jako {bot.user}")
+    for guild in bot.guilds:
+        for member in guild.members:
+            if member.bot:
+                continue
+            save_user(member.id, member.display_name)
+
+@bot.event
+async def on_member_join(member):
+    if not member.bot:
+        save_user(member.id, member.display_name)
+
 
 bot.run(os.environ.get("TOKEN"))

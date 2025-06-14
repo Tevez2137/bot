@@ -4,8 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2ed9b4cd-7c7f-4fb2-ab1c-890c2f2bbd9b" name="Changes" comment="Dodano moduł sprzedaży">
+    <list default="true" id="2ed9b4cd-7c7f-4fb2-ab1c-890c2f2bbd9b" name="Changes" comment="Dodano moduł sprzedaży i debug trade">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/trader/trader.py" beforeDir="false" afterPath="$PROJECT_DIR$/trader/trader.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -250,7 +252,7 @@
       <option name="presentableId" value="Default" />
       <updated>1749827869984</updated>
       <workItem from="1749827870988" duration="6151000" />
-      <workItem from="1749845711853" duration="5215000" />
+      <workItem from="1749845711853" duration="5860000" />
     </task>
     <task id="LOCAL-00001" summary="1">
       <option name="closed" value="true" />
@@ -420,7 +422,15 @@
       <option name="project" value="LOCAL" />
       <updated>1749890286545</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Dodano moduł sprzedaży i debug trade">
+      <option name="closed" value="true" />
+      <created>1749891207443</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1749891207443</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -464,7 +474,8 @@
     <MESSAGE value="4" />
     <MESSAGE value="1" />
     <MESSAGE value="Dodano moduł sprzedaży" />
-    <option name="LAST_COMMIT_MESSAGE" value="Dodano moduł sprzedaży" />
+    <MESSAGE value="Dodano moduł sprzedaży i debug trade" />
+    <option name="LAST_COMMIT_MESSAGE" value="Dodano moduł sprzedaży i debug trade" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

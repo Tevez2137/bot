@@ -19,6 +19,13 @@ def get_inventory(user_id):
     cursor.close()
     return [item[0] for item in items]
 
+def save_user(user_id, username):
+    cursor = _db.cursor()
+    cursor.execute("INSERT IGNORE INTO users (user_id, username) VALUES (%s, %s)", (user_id, username))
+    _db.commit()
+    cursor.close()
+
+
 class TradeStartView(discord.ui.View):
     def __init__(self, requester):
         super().__init__(timeout=60)
@@ -36,19 +43,13 @@ class SelectUser(discord.ui.Select):
         self.requester = requester
 
     async def callback(self, interaction: discord.Interaction):
-        try:
             target_id = int(self.values[0])
             requester_items = get_inventory(self.requester.id)
             target_items = get_inventory(target_id)
-
             embed = discord.Embed(title="Wymiana", description=f"{self.requester.mention} chce wymienić się z <@{target_id}>")
             embed.add_field(name="Twoje przedmioty", value="\n".join(requester_items) or "Brak")
             embed.add_field(name="Ich przedmioty", value="\n".join(target_items) or "Brak")
-
             await interaction.response.edit_message(content="Podsumowanie wymiany:", embed=embed, view=None)
-        except Exception as e:
-            await interaction.response.send_message(f"Błąd: {str(e)}", ephemeral=True)
-            print("❌ Błąd w callback:", e)
 
 class SellStartView(discord.ui.View):
     def __init__(self, requester):
