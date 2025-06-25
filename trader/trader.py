@@ -4,7 +4,7 @@ import mysql.connector
 
 def save_user(user_id, username):
     cursor = _db.cursor()
-    cursor.execute("INSERT IGNORE INTO users (user_id, username) VALUES (%s, %s)", (user_id, username))
+    cursor.execute("INSERT IGNORE INTO users (id, login) VALUES (%s, %s)", (user_id, username))
     _db.commit()
     cursor.close()
 
