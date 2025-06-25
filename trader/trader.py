@@ -83,7 +83,7 @@ class SelectTradeItems(discord.ui.Select):
 class ConfirmTradeButton(discord.ui.Button):
     def __init__(self, view):
         super().__init__(label="Zatwierdź wymianę", style=discord.ButtonStyle.green)
-        self.view = view
+        self.trade_view = trade_view
 
     async def callback(self, interaction: discord.Interaction):
         requester_id = self.view.requester.id
@@ -101,4 +101,4 @@ class ConfirmTradeButton(discord.ui.Button):
         cursor.close()
 
         await interaction.response.send_message("✅ Wymiana zakończona pomyślnie!", ephemeral=True)
-        self.view.stop()
+        trade_view.stop()

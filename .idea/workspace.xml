@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2ed9b4cd-7c7f-4fb2-ab1c-890c2f2bbd9b" name="Changes" comment="Ukończenie modułu trade (chyba),Praca nad modułem sprzedaży, dodanie modułu kupna" />
+    <list default="true" id="2ed9b4cd-7c7f-4fb2-ab1c-890c2f2bbd9b" name="Changes" comment="Ukończenie modułu trade (chyba),Praca nad modułem sprzedaży, dodanie modułu kupna">
+      <change beforePath="$PROJECT_DIR$/trader/trader.py" beforeDir="false" afterPath="$PROJECT_DIR$/trader/trader.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -114,7 +116,7 @@
       <updated>1749827869984</updated>
       <workItem from="1749827870988" duration="6151000" />
       <workItem from="1749845711853" duration="9917000" />
-      <workItem from="1750199321615" duration="8658000" />
+      <workItem from="1750199321615" duration="8969000" />
     </task>
     <task id="LOCAL-00001" summary="1">
       <option name="closed" value="true" />
@@ -324,7 +326,15 @@
       <option name="project" value="LOCAL" />
       <updated>1750865312331</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="Ukończenie modułu trade (chyba),Praca nad modułem sprzedaży, dodanie modułu kupna">
+      <option name="closed" value="true" />
+      <created>1750865751473</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1750865751473</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
