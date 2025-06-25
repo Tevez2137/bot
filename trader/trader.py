@@ -74,8 +74,8 @@ class ConfirmTradeButton(discord.ui.Button):
         self.trade_view = trade_view
 
     async def callback(self, interaction: discord.Interaction):
-        requester_id = self.trade.view.requester.id
-        target_id = self.trade.view.target.id
+        requester_id = self.trade_view.requester.id
+        target_id = self.trade_view.target.id
 
         cursor = _db.cursor()
 
