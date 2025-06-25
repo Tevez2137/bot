@@ -12,6 +12,11 @@ def setup_db(config):
         password=config['password'],
         database=config['database']
     )
+def save_user(user_id, username):
+    cursor = _db.cursor()
+    cursor.execute("INSERT IGNORE INTO users (id, login) VALUES (%s, %s)", (user_id, username))
+    _db.commit()
+    cursor.close()
 
 def get_inventory(user_id):
     cursor = _db.cursor()
