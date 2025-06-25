@@ -68,7 +68,6 @@ class ConfirmTradeButton(discord.ui.Button):
         requester = self.trade_view.requester
         target_user = self.trade_view.target_user
 
-        # TODO: wykonaj faktyczną wymianę w bazie danych tutaj
 
         await interaction.response.send_message(
             f"Wymiana zakończona między {requester.mention} a {target_user.mention}!", ephemeral=False
