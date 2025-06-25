@@ -2,6 +2,13 @@ import discord
 from discord.ui import View, Select, Button
 import mysql.connector
 
+def save_user(user_id, username):
+    cursor = _db.cursor()
+    cursor.execute("INSERT IGNORE INTO users (user_id, username) VALUES (%s, %s)", (user_id, username))
+    _db.commit()
+    cursor.close()
+
+
 _db = None
 
 def setup_db(config):
