@@ -53,18 +53,20 @@ class SelectUser(discord.ui.Select):
         target_items = get_inventory(target_id)
 
         embed = discord.Embed(
-            title="Wymiana",
-            description=f"{self.requester.mention} chce wymienić się z {target_user.mention}"
+            title="Zaproszenie do wymiany",
+            description=f"{self.requester.display_name} zaprosił Cię do wymiany."
         )
-        embed.add_field(name="Twoje przedmioty", value="\n".join(requester_items) or "Brak")
-        embed.add_field(name="Ich przedmioty", value="\n".join(target_items) or "Brak")
+        embed.add_field(name="Twoje przedmioty", value="\n".join(target_items) or "Brak")
+        embed.add_field(name="Ich przedmioty", value="\n".join(requester_items) or "Brak")
 
-        await interaction.followup.edit_message(
-            message_id=interaction.message.id,
-            content="Wybierz przedmioty do wymiany:",
-            embed=embed,
-            view=TradeSessionView(self.requester, target_user, requester_items, target_items)
-        )
+        try:
+            await target_user.send(
+                embed=embed,
+                view=TradeSessionView(self.requester, target_user, requester_items, target_items)
+            )
+            await interaction.followup.send("✅ Zaproszenie do wymiany zostało wysłane.", ephemeral=True)
+        except discord.Forbidden:
+            await interaction.followup.send("❌ Nie można wysłać wiadomości prywatnej do tej osoby.", ephemeral=True)
 
 class TradeSessionView(discord.ui.View):
     def __init__(self, requester, target_user, requester_items, target_items):
@@ -73,7 +75,7 @@ class TradeSessionView(discord.ui.View):
         self.target_user = target_user
         self.requester_items = requester_items
         self.target_items = target_items
-        self.selected_requester_items = requester_items[:1]  # przykładowo wybiera 1 na sztywno
+        self.selected_requester_items = requester_items[:1]  # tymczasowo przykładowe
         self.selected_target_items = target_items[:1]
         self.add_item(ConfirmTradeButton(self))
 
