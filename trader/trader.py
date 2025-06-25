@@ -102,3 +102,26 @@ class ConfirmTradeButton(discord.ui.Button):
 
         await interaction.response.send_message("✅ Wymiana zakończona pomyślnie!", ephemeral=True)
         trade_view.stop()
+class SellStartView(discord.ui.View):
+    def __init__(self, requester):
+        super().__init__(timeout=60)
+        self.requester = requester
+        self.add_item(SelectSellItem(requester))
+
+class SelectSellItem(discord.ui.Select):
+    def __init__(self, requester):
+        items = get_inventory(requester.id)
+        options = [
+            discord.SelectOption(label=item, value=item)
+            for item in items
+        ]
+        super().__init__(placeholder="Wybierz przedmiot do sprzedaży", min_values=1, max_values=1, options=options)
+        self.requester = requester
+
+    async def callback(self, interaction: discord.Interaction):
+        selected_item = self.values[0]
+
+        embed = discord.Embed(title="Sprzedaż", description=f"{self.requester.mention} chce sprzedać:")
+        embed.add_field(name="Przedmiot", value=selected_item)
+
+        await interaction.response.edit_message(content="Podsumowanie sprzedaży:", embed=embed, view=None)
