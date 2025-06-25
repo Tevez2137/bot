@@ -69,15 +69,24 @@ class TradeSessionView(discord.ui.View):
         self.add_item(ConfirmTradeButton(self))
 
 class ConfirmTradeButton(discord.ui.Button):
-    def __init__(self, trade_view):
-        super().__init__(label="Potwierdź wymianę", style=discord.ButtonStyle.success)
-        self.trade_view = trade_view
+    def __init__(self, view):
+        super().__init__(label="Zatwierdź wymianę", style=discord.ButtonStyle.green)
+        self.view = view
 
     async def callback(self, interaction: discord.Interaction):
-        requester = self.trade_view.requester
-        target_user = self.trade_view.target_user
+        requester_id = self.view.requester.id
+        target_id = self.view.target.id
 
+        cursor = _db.cursor()
 
-        await interaction.response.send_message(
-            f"Wymiana zakończona między {requester.mention} a {target_user.mention}!", ephemeral=False
-        )
+        for item in self.view.selected_requester_items:
+            cursor.execute("UPDATE inventory SET user_id = %s WHERE item = %s AND user_id = %s", (target_id, item, requester_id))
+
+        for item in self.view.selected_target_items:
+            cursor.execute("UPDATE inventory SET user_id = %s WHERE item = %s AND user_id = %s", (requester_id, item, target_id))
+
+        _db.commit()
+        cursor.close()
+
+        await interaction.response.send_message("✅ Wymiana zakończona pomyślnie!", ephemeral=True)
+        self.view.stop()
