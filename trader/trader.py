@@ -69,13 +69,13 @@ class TradeSessionView(discord.ui.View):
         self.add_item(ConfirmTradeButton(self))
 
 class ConfirmTradeButton(discord.ui.Button):
-    def __init__(self, view):
+    def __init__(self, trade_view):
         super().__init__(label="Zatwierdź wymianę", style=discord.ButtonStyle.green)
         self.trade_view = trade_view
 
     async def callback(self, interaction: discord.Interaction):
-        requester_id = self.view.requester.id
-        target_id = self.view.target.id
+        requester_id = self.trade.view.requester.id
+        target_id = self.trade.view.target.id
 
         cursor = _db.cursor()
 
