@@ -57,7 +57,7 @@ class SelectUser(discord.ui.Select):
             content="Wybierz przedmioty do wymiany:",
             embed=embed,
             view=TradeSessionView(self.requester, target_user, requester_items, target_items)
-
+        )
 class TradeSessionView(discord.ui.View):
     def __init__(self, requester, target_user, requester_items, target_items):
         super().__init__(timeout=120)
