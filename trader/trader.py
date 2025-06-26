@@ -25,7 +25,7 @@ def get_inventory(user_id):
     cursor.execute("SELECT item FROM inventory WHERE user_id = %s", (user_id,))
     items = cursor.fetchall()
     cursor.close()
-    return items
+    return [item[0] for item in items]
 
 # --- Trade Views ---
 class TradeStartView(View):
