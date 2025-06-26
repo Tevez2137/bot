@@ -41,11 +41,22 @@ class SelectUser(Select):
             discord.SelectOption(label=member.display_name, value=str(member.id))
             for member in members if member != requester and not member.bot
         ]
-        super().__init__(placeholder="Wybierz użytkownika", min_values=1, max_values=1, options=options)
+
+        if not options:
+            options = [discord.SelectOption(label="Brak dostępnych użytkowników", value="none")]
+            min_values = max_values = 1
+        else:
+            min_values = max_values = 1
+
+        super().__init__(placeholder="Wybierz użytkownika", min_values=min_values, max_values=max_values, options=options)
         self.interaction = interaction
         self.requester = requester
 
     async def callback(self, interaction: discord.Interaction):
+        if self.values[0] == "none":
+            await interaction.response.send_message("❌ Brak dostępnych użytkowników do wymiany.", ephemeral=True)
+            return
+
         await interaction.response.edit_message(
             content="Wybierz przedmioty, które chcesz oddać:",
             view=SelectGiveView(self.requester, int(self.values[0]))
@@ -62,11 +73,23 @@ class SelectGiveView(View):
 class GiveSelect(Select):
     def __init__(self, items, requester, target_id):
         options = [discord.SelectOption(label=item, value=item) for item in items]
-        super().__init__(placeholder="Wybierz przedmioty do oddania", min_values=1, max_values=len(options), options=options)
+
+        if not options:
+            options = [discord.SelectOption(label="Brak przedmiotów", value="none")]
+            min_values = max_values = 1
+        else:
+            min_values = 1
+            max_values = len(options)
+
+        super().__init__(placeholder="Wybierz przedmioty do oddania", min_values=min_values, max_values=max_values, options=options)
         self.requester = requester
         self.target_id = target_id
 
     async def callback(self, interaction: discord.Interaction):
+        if "none" in self.values:
+            await interaction.response.send_message("❌ Brak dostępnych przedmiotów do wymiany.", ephemeral=True)
+            return
+
         await interaction.response.edit_message(
             content="Wybierz przedmioty, które chcesz otrzymać:",
             view=SelectReceiveView(self.requester, self.target_id, self.values)
@@ -84,12 +107,24 @@ class SelectReceiveView(View):
 class ReceiveSelect(Select):
     def __init__(self, items, requester, target_id, give_items):
         options = [discord.SelectOption(label=item, value=item) for item in items]
-        super().__init__(placeholder="Wybierz przedmioty do otrzymania", min_values=1, max_values=len(options), options=options)
+
+        if not options:
+            options = [discord.SelectOption(label="Brak przedmiotów", value="none")]
+            min_values = max_values = 1
+        else:
+            min_values = 1
+            max_values = len(options)
+
+        super().__init__(placeholder="Wybierz przedmioty do otrzymania", min_values=min_values, max_values=max_values, options=options)
         self.requester = requester
         self.target_id = target_id
         self.give_items = give_items
 
     async def callback(self, interaction: discord.Interaction):
+        if "none" in self.values:
+            await interaction.response.send_message("❌ Użytkownik nie ma dostępnych przedmiotów do wymiany.", ephemeral=True)
+            return
+
         target_user = interaction.guild.get_member(self.target_id)
         embed = discord.Embed(title="Propozycja wymiany", description=f"{self.requester.mention} proponuje wymianę:")
         embed.add_field(name="Oddaje", value="\n".join(self.give_items), inline=True)
