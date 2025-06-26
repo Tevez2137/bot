@@ -4,12 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2ed9b4cd-7c7f-4fb2-ab1c-890c2f2bbd9b" name="Changes" comment="Ukończenie modułu trade (chyba),Praca nad modułem sprzedaży, dodanie modułu kupna">
-      <change afterPath="$PROJECT_DIR$/main_backup.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/trader/trader_backup.py" afterDir="false" />
+    <list default="true" id="2ed9b4cd-7c7f-4fb2-ab1c-890c2f2bbd9b" name="Changes" comment="Ostateczna walka z modułem trade (chyba),Praca nad modułem sprzedaży, dodanie modułu kupna">
+      <change afterPath="$PROJECT_DIR$/generator.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trader/trader.py" beforeDir="false" afterPath="$PROJECT_DIR$/trader/trader.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,12 +55,13 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "Python.generator.executor": "Run",
     "Python.main.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "bot",
-    "last_opened_file_path": "/Users/karolgorlik/Desktop/bot",
+    "last_opened_file_path": "/Users/karolgorlik/Desktop/bot/trader",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -80,8 +78,8 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/trader" />
+      <recent name="$PROJECT_DIR$" />
     </key>
   </component>
   <component name="RunManager">
@@ -127,7 +125,7 @@
       <updated>1749827869984</updated>
       <workItem from="1749827870988" duration="6151000" />
       <workItem from="1749845711853" duration="9917000" />
-      <workItem from="1750199321615" duration="14840000" />
+      <workItem from="1750199321615" duration="21155000" />
     </task>
     <task id="LOCAL-00001" summary="1">
       <option name="closed" value="true" />
@@ -465,7 +463,39 @@
       <option name="project" value="LOCAL" />
       <updated>1750874162891</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="Ukończenie modułu trade (chyba),Praca nad modułem sprzedaży, dodanie modułu kupna">
+      <option name="closed" value="true" />
+      <created>1750874992967</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1750874992967</updated>
+    </task>
+    <task id="LOCAL-00044" summary="Ukończenie modułu trade (chyba),Praca nad modułem sprzedaży, dodanie modułu kupna">
+      <option name="closed" value="true" />
+      <created>1750875494826</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1750875494826</updated>
+    </task>
+    <task id="LOCAL-00045" summary="Ostateczna walka z modułem trade (chyba),Praca nad modułem sprzedaży, dodanie modułu kupna">
+      <option name="closed" value="true" />
+      <created>1750876391954</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1750876391954</updated>
+    </task>
+    <task id="LOCAL-00046" summary="Ostateczna walka z modułem trade (chyba),Praca nad modułem sprzedaży, dodanie modułu kupna">
+      <option name="closed" value="true" />
+      <created>1750883558150</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1750883558150</updated>
+    </task>
+    <option name="localTasksCounter" value="47" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -514,7 +544,8 @@
     <MESSAGE value="Praca nad modułem sprzedaży poprawiono automatyczne dodawanie userów do bazy" />
     <MESSAGE value="Praca nad modułem sprzedaży, dodanie modułu kupna" />
     <MESSAGE value="Ukończenie modułu trade (chyba),Praca nad modułem sprzedaży, dodanie modułu kupna" />
-    <option name="LAST_COMMIT_MESSAGE" value="Ukończenie modułu trade (chyba),Praca nad modułem sprzedaży, dodanie modułu kupna" />
+    <MESSAGE value="Ostateczna walka z modułem trade (chyba),Praca nad modułem sprzedaży, dodanie modułu kupna" />
+    <option name="LAST_COMMIT_MESSAGE" value="Ostateczna walka z modułem trade (chyba),Praca nad modułem sprzedaży, dodanie modułu kupna" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -528,6 +559,7 @@
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/main_py$generator.coverage" NAME="generator Coverage Results" MODIFIED="1750891918210" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/bot$main.coverage" NAME="main Coverage Results" MODIFIED="1749827970718" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/main_py$main.coverage" NAME="main Coverage Results" MODIFIED="1750872596744" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>

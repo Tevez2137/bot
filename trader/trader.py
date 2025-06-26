@@ -23,7 +23,7 @@ def save_user(user_id, username):
 def get_inventory(user_id):
     cursor = _db.cursor()
     cursor.execute("SELECT item FROM inventory WHERE user_id = %s", (user_id,))
-    items = cursor.fetchall()
+    items = [row[0] for row in cursor.fetchall()]
     cursor.close()
     return items
 
@@ -130,4 +130,4 @@ class ConfirmTradeButton(Button):
         cursor.close()
 
         await interaction.response.send_message("✅ Wymiana zakończona pomyślnie!", ephemeral=True)
-        self.view.stop()
+        self.trade_view.stop()
