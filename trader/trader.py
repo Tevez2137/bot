@@ -68,7 +68,7 @@ class SelectGiveView(View):
         super().__init__(timeout=60)
         self.requester = requester
         self.target_id = target_id
-        items = get_inventory(691324011686396000)
+        items = get_inventory(int(requester.id))
         self.add_item(GiveSelect(items, requester, target_id))
 
 class GiveSelect(Select):
