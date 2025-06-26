@@ -26,7 +26,8 @@ def get_inventory(user_id):
     rows = cursor.fetchall()
     for row in rows:
         print(repr(row[0]))
-    items = [row[0] for row in rows]
+    cursor.execute("SELECT item FROM inventory WHERE user_id = %s", (user_id,))
+    items = [row[0] for row in cursor.fetchall()]
     cursor.close()
     return items
 
