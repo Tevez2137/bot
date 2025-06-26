@@ -23,10 +23,6 @@ def save_user(user_id, username):
 def get_inventory(user_id):
     cursor = _db.cursor()
     cursor.execute("SELECT item FROM inventory WHERE user_id = %s", (user_id,))
-    rows = cursor.fetchall()
-    for row in rows:
-        print(repr(row[0]))
-    cursor.execute("SELECT item FROM inventory WHERE user_id = %s", (user_id,))
     items = [row[0] for row in cursor.fetchall()]
     cursor.close()
     return items
