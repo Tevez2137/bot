@@ -24,6 +24,7 @@ def get_inventory(user_id):
     cursor = _db.cursor()
     cursor.execute("SELECT item FROM inventory WHERE user_id = %s", (user_id,))
     items = cursor.fetchall()
+    print(f"[DEBUG] Pobrano {len(items)} przedmiotów dla user_id={user_id}: {items}")  # <-- TO DODAJ
     cursor.close()
     return [item[0] for item in items]
 
