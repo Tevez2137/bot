@@ -68,6 +68,7 @@ class SelectGiveView(View):
         super().__init__(timeout=60)
         self.requester = requester
         self.target_id = target_id
+        print(f"[DEBUG] requester: {self.requester.display_name} ({self.requester.id})")
         items = get_inventory(int(requester.id))
         self.add_item(GiveSelect(items, requester, target_id))
 
