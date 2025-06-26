@@ -22,13 +22,12 @@ def save_user(user_id, username):
 
 def get_inventory(user_id):
     cursor = _db.cursor()
-    #cursor.execute("SELECT item FROM inventory WHERE user_id = %s", (user_id,))
     cursor.execute("SELECT item FROM inventory WHERE user_id = %s", (user_id,))
-    for row in cursor.fetchall():
+    rows = cursor.fetchall()
+    for row in rows:
         print(repr(row[0]))
-    items = [row[0] for row in cursor.fetchall()]
+    items = [row[0] for row in row]
     cursor.close()
-    #print(items)
     return items
 
 # --- Trade Views ---
