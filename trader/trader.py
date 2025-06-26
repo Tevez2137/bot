@@ -26,7 +26,7 @@ def get_inventory(user_id):
     rows = cursor.fetchall()
     for row in rows:
         print(repr(row[0]))
-    items = [row[0] for row in row]
+    items = [row[0] for row in rows]
     cursor.close()
     return items
 
